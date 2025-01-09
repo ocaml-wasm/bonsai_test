@@ -2,5 +2,6 @@
  (name bonsai_test_computation_report)
  (public_name bonsai_test.computation_report)
  (libraries bonsai bonsai_test bonsai_test_shared_for_testing_bonsai core)
+ (inline_tests (flags -drop-tag no-js -drop-tag 64-bits-only -drop-tag no-wasm) (modes js wasm))
  (preprocess
   (pps ppx_jane bonsai.ppx_bonsai)))

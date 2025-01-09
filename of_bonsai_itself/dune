@@ -6,5 +6,6 @@
    patdiff.expect_test_patdiff expectable incr_map incremental
    ppx_quick_test.runtime_lib re virtual_dom.ui_effect
    bonsai_concrete.ui_incr bonsai_concrete.ui_time_source)
+ (inline_tests (flags -drop-tag no-js -drop-tag 64-bits-only -drop-tag no-wasm) (modes js wasm))
  (preprocess
   (pps ppx_jane ppx_pattern_bind bonsai.ppx_bonsai ppx_quick_test)))
