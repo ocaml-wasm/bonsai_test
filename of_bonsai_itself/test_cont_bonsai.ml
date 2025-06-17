@@ -650,7 +650,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 100 ];
     Handle.show handle;
@@ -666,7 +666,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -682,7 +682,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -721,7 +721,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -737,7 +737,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -773,7 +773,7 @@ module%test [@name "computation watcher"] _ = struct
       Details: (incr_info ())
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -786,7 +786,7 @@ module%test [@name "computation watcher"] _ = struct
       Details: (incr_info ())
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -900,8 +900,8 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -971,8 +971,8 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -1027,8 +1027,8 @@ module%test [@name "computation watcher"] _ = struct
       Details: (incr_info ())
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -1082,8 +1082,8 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -1100,8 +1100,8 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -1168,12 +1168,12 @@ module%test [@name "computation watcher"] _ = struct
       Watched computation updated due to Incremental node
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
       2 watched computations updated due to Incremental node
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -1184,7 +1184,7 @@ module%test [@name "computation watcher"] _ = struct
       2 watched computations updated due to Incremental node
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `B 2 ];
     Handle.show handle;
@@ -1195,7 +1195,7 @@ module%test [@name "computation watcher"] _ = struct
       Watched computation updated due to Incremental node
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -1262,7 +1262,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-2-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
       2 watched computations updated due to Incremental node at [Incremental-depth-0-location:LINE:COL]
 
@@ -1273,9 +1273,9 @@ module%test [@name "computation watcher"] _ = struct
        - [Inner] Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
-      2 watched computations updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      2 watched computations updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -1284,7 +1284,7 @@ module%test [@name "computation watcher"] _ = struct
        - [Inner] Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 100 ];
     Handle.show handle;
@@ -1301,9 +1301,9 @@ module%test [@name "computation watcher"] _ = struct
        - [Inner] Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
-      2 watched computations updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      2 watched computations updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -1312,7 +1312,7 @@ module%test [@name "computation watcher"] _ = struct
        - [Inner] Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -1329,9 +1329,9 @@ module%test [@name "computation watcher"] _ = struct
        - [Inner] Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
-      2 watched computations updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      2 watched computations updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -1340,7 +1340,7 @@ module%test [@name "computation watcher"] _ = struct
        - [Inner] Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `B 20 ];
     Handle.show handle;
@@ -1356,7 +1356,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-2-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -1392,7 +1392,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
       Watched computation updated due to Named node at [State-depth-0-location:LINE:COL]
 
@@ -1402,7 +1402,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 1 ];
     Handle.show handle;
@@ -1418,7 +1418,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `B 1 ];
     Handle.show handle;
@@ -1445,7 +1445,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -2349,7 +2349,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
       Watched computation updated due to Named node at [State-depth-0-location:LINE:COL]
 
@@ -2359,7 +2359,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 1 ];
     Handle.show handle;
@@ -2375,7 +2375,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `B 1 ];
     Handle.show handle;
@@ -2402,7 +2402,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -2471,7 +2471,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 1 ];
     Handle.show handle;
@@ -2606,7 +2606,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
       Watched computation updated due to Named node at [State-depth-0-location:LINE:COL]
 
@@ -2616,7 +2616,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 1 ];
     Handle.show handle;
@@ -2632,7 +2632,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     (* we disable the computation that did the monitoring, so the messages should stop *)
     Bonsai.Expert.Var.set active false;
@@ -2684,7 +2684,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
       Watched computation updated due to Named node at [State-depth-0-location:LINE:COL]
 
@@ -2694,7 +2694,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 1 ];
     Handle.show handle;
@@ -2710,7 +2710,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     (* we disable the computation that did the monitoring, so the messages should stop *)
     Bonsai.Expert.Var.set active false;
@@ -2729,7 +2729,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `A 2 ];
     Handle.show handle;
@@ -2895,7 +2895,7 @@ module%test [@name "computation watcher"] _ = struct
     [%expect
       {|
       --------------------------------
-      Watched computation updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      Watched computation updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -2903,9 +2903,9 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-2-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
-      2 watched computations updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      2 watched computations updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -2914,9 +2914,9 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
-      Watched computation updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      Watched computation updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -2924,7 +2924,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-4-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Handle.do_actions handle [ `B 2 ];
     Handle.show handle;
@@ -2932,7 +2932,7 @@ module%test [@name "computation watcher"] _ = struct
     [%expect
       {|
       --------------------------------
-      2 watched computations updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      2 watched computations updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -2941,9 +2941,9 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-1-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       --------------------------------
-      Watched computation updated due to Named node at [lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
+      Watched computation updated due to Named node at [lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL]
 
       Details: (incr_info ())
 
@@ -2951,7 +2951,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-4-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 
@@ -3013,8 +3013,8 @@ module%test [@name "computation watcher"] _ = struct
       {|
       --------------------------------
       Watched computation updated due to Named nodes at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
 
       Details: (incr_info ())
 
@@ -3052,7 +3052,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}];
     Bonsai.Expert.Var.set var false;
     Handle.show handle;
@@ -3068,7 +3068,7 @@ module%test [@name "computation watcher"] _ = struct
        - Watcher-depth-0-location:LINE:COL
 
       Updated computation depended on at:
-       - lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
+       - lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL
       |}]
   ;;
 end
@@ -10916,7 +10916,7 @@ let%expect_test "use of match%sub outside of graph context" =
   [%expect
     {|
     ("match%sub called outside of the context of a graph"
-     (here lib/bonsai/test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL))
+     (here lib/bonsai_test/of_bonsai_itself/test_cont_bonsai.ml:LINE:COL))
     |}]
 ;;
 
