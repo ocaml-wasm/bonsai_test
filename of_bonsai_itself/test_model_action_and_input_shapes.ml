@@ -19,7 +19,7 @@ let graph_stats c =
     Bonsai_driver.create
       ~instrumentation:(Bonsai_driver.Instrumentation.default_for_test_handles ())
       (fun graph -> Bonsai.Private.perform graph c)
-        (* we explicitly optimize the computation ourselves inside of [print], so don't do
+         (* we explicitly optimize the computation ourselves inside of [print], so don't do
            anything here. *)
       ~optimize:false
       ~time_source:(Ui_time_source.create ~start:Time_ns.epoch)
@@ -252,8 +252,10 @@ end
 module%test [@name "assoc"] _ = struct
   let%expect_test "constant inside assoc" =
     print
-      (Bonsai.assoc (module Int) (opaque_const_value Int.Map.empty) ~f:(fun _ _ ->
-         constant_computation));
+      (Bonsai.assoc
+         (module Int)
+         (opaque_const_value Int.Map.empty)
+         ~f:(fun _ _ -> constant_computation));
     [%expect
       {|
       ("without optimizations"
@@ -273,8 +275,10 @@ module%test [@name "assoc"] _ = struct
 
   let%expect_test "static state inside assoc" =
     print
-      (Bonsai.assoc (module Int) (opaque_const_value Int.Map.empty) ~f:(fun _ _ ->
-         stateful_static_computation));
+      (Bonsai.assoc
+         (module Int)
+         (opaque_const_value Int.Map.empty)
+         ~f:(fun _ _ -> stateful_static_computation));
     [%expect
       {|
       ("with and without optimizations"
@@ -290,8 +294,10 @@ module%test [@name "assoc"] _ = struct
 
   let%expect_test "dynamic_state inside assoc" =
     print
-      (Bonsai.assoc (module Int) (opaque_const_value Int.Map.empty) ~f:(fun _ _ ->
-         stateful_dynamic_computation));
+      (Bonsai.assoc
+         (module Int)
+         (opaque_const_value Int.Map.empty)
+         ~f:(fun _ _ -> stateful_dynamic_computation));
     [%expect
       {|
       ("with and without optimizations"

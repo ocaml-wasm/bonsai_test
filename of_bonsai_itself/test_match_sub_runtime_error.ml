@@ -17,5 +17,5 @@ let%expect_test "match%sub defers exceptions until runtime" =
   Bonsai.Var.set var false;
   Expect_test_helpers_core.require_does_raise ~hide_positions:true (fun () ->
     Handle.show handle);
-  [%expect {| "Assert_failure test_match_sub_runtime_error.ml:LINE:COL" |}]
+  [%expect {| "Assert_failure lib/bonsai_test/of_bonsai_itself/test_match_sub_runtime_error.ml:LINE:COL" |}]
 ;;

@@ -3,7 +3,7 @@ open! Core
 let%expect_test "Daylight saving switch" =
   (* This test is a small test that prints out the behavior of Time_ns when the daylight
      savings switch occurs. *)
-  let time = Time_ns.of_string "2025-03-29 00:00:00" in
+  let time = Time_ns.of_string "2025-03-29 00:00:00-04:00" in
   List.iter (List.init 48 ~f:Fn.id) ~f:(fun hour_offset ->
     print_endline
       (Time_ns.to_string_abs
