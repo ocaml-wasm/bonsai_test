@@ -28,7 +28,8 @@ module Common (M : sig
       -> ('a -> 'b Bonsai.Effect_throttling.Poll_result.t Effect.t) Computation.t
   end) =
 struct
-  let%expect_test {| Effect_throttling.poll only runs one instance of an effect at a time |}
+  let%expect_test
+      {| Effect_throttling.poll only runs one instance of an effect at a time |}
     =
     let qrt = Effect.For_testing.Query_response_tracker.create () in
     let respond q =
@@ -109,13 +110,13 @@ module _ = Common (struct
   end)
 
 module _ = Common (struct
-    let poll ?here:(_ = Stdlib.Lexing.dummy_pos) effect =
+    let poll ?here:(_ = Stdlib.Lexing.dummy_pos) effct =
       let open Bonsai.Let_syntax in
-      let%sub effect = Bonsai.Effect_throttling.poll effect in
-      let%sub effect = Bonsai.Effect_throttling.poll effect in
-      let%arr effect in
+      let%sub effct = Bonsai.Effect_throttling.poll effct in
+      let%sub effct = Bonsai.Effect_throttling.poll effct in
+      let%arr effct = effct in
       fun int ->
-        match%map.Effect effect int with
+        match%map.Effect effct int with
         | Aborted -> Bonsai.Effect_throttling.Poll_result.Aborted
         | Finished (Finished result) -> Finished result
         | Finished Aborted -> raise_s [%message "Unexpected finished of aborted"]
@@ -170,7 +171,8 @@ let%expect_test {| Effect_throttling.poll deactivation |} =
   [%expect {| ((query 2) (result (Finished 4))) |}]
 ;;
 
-let%expect_test {| Effect_throttling.poll gets activated and de-activated the next frame |}
+let%expect_test
+    {| Effect_throttling.poll gets activated and de-activated the next frame |}
   =
   let qrt = Effect.For_testing.Query_response_tracker.create () in
   let respond q =
@@ -206,7 +208,8 @@ let%expect_test {| Effect_throttling.poll gets activated and de-activated the ne
   [%expect {| ((query 0) (result (Finished 5))) |}]
 ;;
 
-let%expect_test {| Effect_throttling.poll effect finishes while inactive and effect is queued |}
+let%expect_test
+    {| Effect_throttling.poll effect finishes while inactive and effect is queued |}
   =
   let qrt = Effect.For_testing.Query_response_tracker.create () in
   let respond q =
@@ -253,7 +256,8 @@ let%expect_test {| Effect_throttling.poll in an assoc |} =
         let%sub poll_effect =
           Bonsai.Effect_throttling.poll (Bonsai.Var.value effect_var)
         in
-        let%arr key and poll_effect in
+        let%arr key = key
+        and poll_effect = poll_effect in
         poll_effect key)
   in
   let handle =
@@ -266,8 +270,8 @@ let%expect_test {| Effect_throttling.poll in an assoc |} =
 
         let incoming map query =
           match Map.find map query with
-          | Some effect ->
-            let%bind.Effect result = effect in
+          | Some effct ->
+            let%bind.Effect result = effct in
             Effect.print_s
               [%message
                 (query : int) (result : int Bonsai.Effect_throttling.Poll_result.t)]

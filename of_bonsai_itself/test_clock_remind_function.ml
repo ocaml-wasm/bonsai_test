@@ -7,14 +7,14 @@ let run_effect_on_change_and_remind_every_span_if_true
   :  span:Time_ns.Span.t -> condition:bool Bonsai.t -> unit Ui_effect.t Bonsai.t
   -> Bonsai.graph -> unit Bonsai.t
   =
-  fun ~span ~condition effect graph ->
+  fun ~span ~condition effct graph ->
   let () =
     Bonsai.Edge.on_change'
       ~equal:[%equal: bool]
       condition
       graph
       ~callback:
-        (let%arr effect in
+        (let%arr effct in
          fun prev curr ->
            let should_run =
              match prev, curr with
@@ -23,7 +23,7 @@ let run_effect_on_change_and_remind_every_span_if_true
            in
            match should_run with
            | false -> Ui_effect.Ignore
-           | true -> effect)
+           | true -> effct)
   in
   match%sub condition with
   | false -> Bonsai.return ()
@@ -36,7 +36,7 @@ let run_effect_on_change_and_remind_every_span_if_true
               ~trigger_on_activate:false
               ~when_to_start_next_effect:`Every_multiple_of_period_blocking
               (return span)
-              effect
+              effct
               graph
           in
           Bonsai.return ())

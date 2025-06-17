@@ -34,7 +34,7 @@ let%expect_test {| One_at_a_time.effect only runs one instance of an effect at a
     Effect.For_testing.Query_response_tracker.maybe_respond qrt ~f:(fun _ -> Respond i)
   in
   let component =
-    One_at_a_time.effect (Value.return (Effect.For_testing.of_query_response_tracker qrt))
+    One_at_a_time.effect_ (Value.return (Effect.For_testing.of_query_response_tracker qrt))
   in
   let handle = create_handle component in
   Handle.show handle;
@@ -94,13 +94,13 @@ let%expect_test {| Double [One_at_a_time.effect] application should be consisten
   in
   let component =
     let open Bonsai.Let_syntax in
-    let%sub effect, status1 =
-      One_at_a_time.effect
+    let%sub effct, status1 =
+      One_at_a_time.effect_
         (Value.return (Effect.For_testing.of_query_response_tracker qrt))
     in
-    let%sub effect, status2 = One_at_a_time.effect effect in
-    let%arr status1 and status2 and effect in
-    effect, status1, status2
+    let%sub effct, status2 = One_at_a_time.effect_ effct in
+    let%arr status1 and status2 and effct in
+    effct, status1, status2
   in
   let handle =
     Handle.create
@@ -118,8 +118,8 @@ let%expect_test {| Double [One_at_a_time.effect] application should be consisten
               (status1 : One_at_a_time.Status.t) (status2 : One_at_a_time.Status.t)]
         ;;
 
-        let incoming (effect, _, _) () =
-          let%bind.Effect result = effect () in
+        let incoming (effct, _, _) () =
+          let%bind.Effect result = effct () in
           Effect.print_s
             [%message (result : int One_at_a_time.Response.t One_at_a_time.Response.t)]
         ;;
@@ -190,7 +190,7 @@ let%expect_test {| One_at_a_time.effect releases lock after effect throws except
         (fun x -> if x = 1 then failwith "error while running effect" else x)
         x)
   in
-  let component = One_at_a_time.effect (Value.return fail_effect) in
+  let component = One_at_a_time.effect_ (Value.return fail_effect) in
   let handle = create_handle component in
   Handle.show handle;
   [%expect {| Idle |}];

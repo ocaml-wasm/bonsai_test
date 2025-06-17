@@ -5906,11 +5906,11 @@ let%expect_test "on_display for updating a state (using on_change)" =
 let%expect_test "actor" =
   let print_int_effect = printf "%d\n" |> Bonsai.Effect.of_sync_fun in
   let component graph =
-    let _, effect =
+    let _, effct =
       Bonsai.actor ~default_model:0 ~recv:(fun _ctx v () -> v + 1, v) graph
     in
-    let%map effect in
-    let%bind.Bonsai.Effect i = effect () in
+    let%map effct in
+    let%bind.Bonsai.Effect i = effct () in
     print_int_effect i
   in
   let handle =
@@ -5939,7 +5939,7 @@ let%expect_test "actor" =
 
 let%expect_test "actor sending events to itself" =
   let component graph =
-    let (_ : unit Bonsai.t), effect =
+    let (_ : unit Bonsai.t), effct =
       Bonsai.actor graph ~default_model:() ~recv:(fun ctx () i ->
         (Bonsai.Apply_action_context.schedule_event ctx)
           (Effect.print_s [%message "got" ~_:(i : int)]);
@@ -5951,8 +5951,8 @@ let%expect_test "actor sending events to itself" =
               Effect.print_s [%message (result : int)]));
         (), i * 2)
     in
-    let%map effect in
-    fun x -> Effect.ignore_m (effect x)
+    let%map effct in
+    fun x -> Effect.ignore_m (effct x)
   in
   let handle =
     Handle.create
@@ -5984,7 +5984,7 @@ let%expect_test "actor sending events to itself" =
 ;;
 
 let%expect_test "Handle.show lifecycle" =
-  let effect action on =
+  let effct action on =
     Bonsai.return (Ui_effect.print_s [%message (action : string) (on : string)])
   in
   let component input graph =
@@ -5992,16 +5992,16 @@ let%expect_test "Handle.show lifecycle" =
     if%sub input
     then (
       Bonsai.Edge.lifecycle
-        ~on_activate:(effect "activate" "a")
-        ~on_deactivate:(effect "deactivate" "a")
-        ~after_display:(effect "after-display" "a")
+        ~on_activate:(effct "activate" "a")
+        ~on_deactivate:(effct "deactivate" "a")
+        ~after_display:(effct "after-display" "a")
         graph;
       rendered)
     else (
       Bonsai.Edge.lifecycle
-        ~on_activate:(effect "activate" "b")
-        ~on_deactivate:(effect "deactivate" "b")
-        ~after_display:(effect "after-display" "b")
+        ~on_activate:(effct "activate" "b")
+        ~on_deactivate:(effct "deactivate" "b")
+        ~after_display:(effct "after-display" "b")
         graph;
       rendered)
   in
@@ -6036,7 +6036,7 @@ let%expect_test "Handle.show lifecycle" =
 ;;
 
 let%expect_test "Handle.show_into_string lifecycle" =
-  let effect action on =
+  let effct action on =
     Bonsai.return (Ui_effect.print_s [%message (action : string) (on : string)])
   in
   let component input graph =
@@ -6044,16 +6044,16 @@ let%expect_test "Handle.show_into_string lifecycle" =
     if%sub input
     then (
       Bonsai.Edge.lifecycle
-        ~on_activate:(effect "activate" "a")
-        ~on_deactivate:(effect "deactivate" "a")
-        ~after_display:(effect "after-display" "a")
+        ~on_activate:(effct "activate" "a")
+        ~on_deactivate:(effct "deactivate" "a")
+        ~after_display:(effct "after-display" "a")
         graph;
       rendered)
     else (
       Bonsai.Edge.lifecycle
-        ~on_activate:(effect "activate" "b")
-        ~on_deactivate:(effect "deactivate" "b")
-        ~after_display:(effect "after-display" "b")
+        ~on_activate:(effct "activate" "b")
+        ~on_deactivate:(effct "deactivate" "b")
+        ~after_display:(effct "after-display" "b")
         graph;
       rendered)
   in
@@ -7727,14 +7727,14 @@ end
 
 let%expect_test "wait_after_display" =
   let component graph =
-    let effect name =
+    let effct name =
       let wait_after_display = Bonsai.Edge.wait_after_display graph in
       let%map wait_after_display in
       let%bind.Effect () = wait_after_display in
       Effect.print_s [%message "after display" (name : string)]
     in
-    let a = effect "a" in
-    let b = effect "b" in
+    let a = effct "a" in
+    let b = effct "b" in
     Bonsai.both a b
   in
   let handle =
@@ -8071,7 +8071,7 @@ module Query_response_tracker = Bonsai.Effect.For_testing.Query_response_tracker
 
 let edge_poll_shared ~get_expect_output =
   let effect_tracker = Query_response_tracker.create () in
-  let effect = Bonsai.Effect.For_testing.of_query_response_tracker effect_tracker in
+  let effct = Bonsai.Effect.For_testing.of_query_response_tracker effect_tracker in
   let var = Bonsai.Expert.Var.create "hello" in
   let component graph =
     Bonsai.Edge.Poll.effect_on_change
@@ -8081,7 +8081,7 @@ let edge_poll_shared ~get_expect_output =
       ~equal_result:[%equal: String.t]
       Bonsai.Edge.Poll.Starting.empty
       (Bonsai.Expert.Var.value var)
-      ~effect:(Bonsai.return effect)
+      ~effct:(Bonsai.return effct)
       graph
   in
   let handle =
@@ -8896,7 +8896,7 @@ let%expect_test "with_self_effect" =
       ~f:(fun input graph ->
         let number, set_number = Bonsai.state 0 graph in
         let%map number and set_number and input in
-        let effect action =
+        let effct action =
           match action with
           | Result_spec.Print ->
             (match%bind.Effect input with
@@ -8906,7 +8906,7 @@ let%expect_test "with_self_effect" =
           | Set i -> set_number i
         in
         let computed = sprintf "the value: [%d]" number in
-        computed, effect)
+        computed, effct)
       graph
   in
   let handle = Handle.create (module Result_spec) component in
@@ -10800,13 +10800,13 @@ module%test [@name "apply action time source"] _ = struct
     let time_source = Bonsai.Apply_action_context.time_source ctx in
     let schedule_event = Bonsai.Apply_action_context.schedule_event ctx in
     let message s = [%message "" ~for_:(action : int) ~_:(s : string)] in
-    let effect =
+    let effct =
       let%map.Effect () =
         Bonsai.Time_source.sleep time_source (Time_ns.Span.of_sec 1.0)
       in
       print_ctx ~message:(message "after waiting") ctx
     in
-    schedule_event effect;
+    schedule_event effct;
     print_ctx ~message:(message "inside apply-action") ctx
   ;;
 

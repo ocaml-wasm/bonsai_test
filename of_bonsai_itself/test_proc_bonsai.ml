@@ -2804,7 +2804,7 @@ let%expect_test "on_display for updating a state (using on_change)" =
 let%expect_test "actor" =
   let print_int_effect = printf "%d\n" |> Bonsai.Effect.of_sync_fun in
   let component =
-    let%sub _, effect =
+    let%sub _, effct =
       Bonsai.actor
         ()
         ~sexp_of_model:[%sexp_of: Int.t]
@@ -2815,8 +2815,8 @@ let%expect_test "actor" =
     in
     return
     @@
-    let%map effect in
-    let%bind.Bonsai.Effect i = effect () in
+    let%map effct in
+    let%bind.Bonsai.Effect i = effct () in
     print_int_effect i
   in
   let handle =
@@ -2845,7 +2845,7 @@ let%expect_test "actor" =
 
 let%expect_test "actor sending events to itself" =
   let component =
-    let%sub (), effect =
+    let%sub (), effct =
       Bonsai.actor () ~default_model:() ~recv:(fun ctx () i ->
         Bonsai.Apply_action_context.schedule_event
           ctx
@@ -2859,8 +2859,8 @@ let%expect_test "actor sending events to itself" =
               Effect.print_s [%message (result : int)]));
         (), i * 2)
     in
-    let%arr effect in
-    fun x -> Effect.ignore_m (effect x)
+    let%arr effct in
+    fun x -> Effect.ignore_m (effct x)
   in
   let handle =
     Handle.create
@@ -2892,7 +2892,7 @@ let%expect_test "actor sending events to itself" =
 ;;
 
 let%expect_test "lifecycle" =
-  let effect action on =
+  let effct action on =
     Ui_effect.print_s [%message (action : string) (on : string)] |> Value.return
   in
   let component input =
@@ -2901,18 +2901,18 @@ let%expect_test "lifecycle" =
     then (
       let%sub () =
         Bonsai.Edge.lifecycle
-          ~on_activate:(effect "activate" "a")
-          ~on_deactivate:(effect "deactivate" "a")
-          ~after_display:(effect "after-display" "a")
+          ~on_activate:(effct "activate" "a")
+          ~on_deactivate:(effct "deactivate" "a")
+          ~after_display:(effct "after-display" "a")
           ()
       in
       rendered)
     else (
       let%sub () =
         Bonsai.Edge.lifecycle
-          ~on_activate:(effect "activate" "b")
-          ~on_deactivate:(effect "deactivate" "b")
-          ~after_display:(effect "after-display" "b")
+          ~on_activate:(effct "activate" "b")
+          ~on_deactivate:(effct "deactivate" "b")
+          ~after_display:(effct "after-display" "b")
           ()
       in
       rendered)
@@ -4308,14 +4308,14 @@ end
 
 let%expect_test "wait_after_display" =
   let component =
-    let effect name =
+    let effct name =
       let%sub wait_after_display = Bonsai.Edge.wait_after_display () in
       let%arr wait_after_display in
       let%bind.Effect () = wait_after_display in
       Effect.print_s [%message "after display" (name : string)]
     in
-    let%sub a = effect "a" in
-    let%sub b = effect "b" in
+    let%sub a = effct "a" in
+    let%sub b = effct "b" in
     return (Value.both a b)
   in
   let handle =
@@ -4686,7 +4686,7 @@ let%expect_test "sleep works even when switching between inactive and active" =
 
 let edge_poll_shared ~get_expect_output =
   let effect_tracker = Query_response_tracker.create () in
-  let effect = Bonsai.Effect.For_testing.of_query_response_tracker effect_tracker in
+  let effct = Bonsai.Effect.For_testing.of_query_response_tracker effect_tracker in
   let var = Bonsai.Var.create "hello" in
   let component =
     Bonsai.Edge.Poll.effect_on_change
@@ -4696,7 +4696,7 @@ let edge_poll_shared ~get_expect_output =
       ~equal_result:[%equal: String.t]
       Bonsai.Edge.Poll.Starting.empty
       (Bonsai.Var.value var)
-      ~effect:(Value.return effect)
+      ~effct:(Value.return effct)
   in
   let handle =
     Handle.create
@@ -5397,7 +5397,7 @@ let%expect_test "with_self_effect" =
         in
         let%arr number, set_number = state
         and input in
-        let effect action =
+        let effct action =
           match action with
           | Result_spec.Print ->
             (match%bind.Effect input with
@@ -5407,7 +5407,7 @@ let%expect_test "with_self_effect" =
           | Set i -> set_number i
         in
         let computed = sprintf "the value: [%d]" number in
-        computed, effect)
+        computed, effct)
   in
   let handle = Handle.create (module Result_spec) component in
   Handle.show handle;
